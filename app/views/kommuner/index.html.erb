@@ -1,0 +1,42 @@
+<h1>Kommuner</h1>
+
+<script type="text/javascript">
+  // Setting filter state buttons to hidden on load
+  Event.observe(window, 'load', loaded, false);
+  function loaded(){
+    $('filter_clear_btn').hide();
+    $('filter_spinner').hide();
+    UpdateFilterBtnVisibility();
+  }
+  
+  
+  // determines whether or not to show the clear_filter_btn
+  function UpdateFilterBtnVisibility(){
+    if($F('query')=='')
+      $('filter_clear_btn').hide();
+    else
+      $('filter_clear_btn').show();
+  }
+</script>
+
+
+<p><label>Filter: <%= text_field_tag :query, @query, :autocomplete => "off" %></label><%= link_to_function image_tag("filter_clear.png", :id  =>  "filter_clear_btn") , "$('query').value = '';this.hide();" %><%= image_tag('spinner_mac.gif', :id => "filter_spinner") %></p>
+
+<ul>
+  <div id="kommunelist">
+    <%= render :partial => "kommune", :collection  => @kommuner %>  
+  </div>  
+</ul>
+
+<%= observe_field :query,
+       :url => { :action => :filtering_search },
+       :frequency => 0.5,
+       :update => :kommunelist,
+       :with => 'query',
+       :loading  =>   "$('filter_spinner').show()",
+       :complete  => "$('filter_spinner').hide()"
+       %>
+
+<%= observe_field :query, 
+      :function  => "UpdateFilterBtnVisibility();",
+      :frequency  => 0.5 %>

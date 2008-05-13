@@ -1,0 +1,9 @@
+<h1>Region <%= @region.navn %></h1>
+<h2>Kommuner</h2>
+<ul>
+  <% for kommune in @kommuner %>
+    <li><%= kommune.navn
+     %></li>
+
+  <%- end -%>  
+</ul>

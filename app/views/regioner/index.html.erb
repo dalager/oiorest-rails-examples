@@ -1,0 +1,6 @@
+<h1>Regioner</h1>
+<% for region in @regioner %>
+<%= link_to( region.navn, url_for(:action  => 'vis',:id => region.nr)) %>
+ <br>
+
+<%- end -%>

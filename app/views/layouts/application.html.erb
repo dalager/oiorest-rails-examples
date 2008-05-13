@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <%= javascript_include_tag :defaults, :cache => true %>
+    <%= stylesheet_link_tag :all, :cache => false %> 
+  </head>
+  <body>
+    <%= link_to "Kommuner", :controller => "kommuner", :action => "index" %> | 
+    <%= link_to "Regioner", :controller => "regioner", :action => "index" %>
+    <hr/>
+    <%= yield %>  
+  </body>
+</html>
