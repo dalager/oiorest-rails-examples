@@ -1,4 +1,4 @@
-Getting started
+== Getting started ==
 
 Here is how you check out the code (we use Git as scm)
 
@@ -7,3 +7,9 @@ git clone git://github.com/dalager/oiorest.git
 
 git-submodule init
 git-submodule update
+
+== How To Use the examples ==
+
+
+1. run rake db:migrate to create development.sqlite3 -- otherwise the app won't run
+
