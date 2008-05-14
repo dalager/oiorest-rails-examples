@@ -21,9 +21,9 @@ some wiki information to be moved to GitHub.
 You have checked out the source code, now run these commands to
 install the plugin from source, and set up a database.
 
-git-submodule init
-git-submodule update
-rake db:migrate
+    git-submodule init
+    git-submodule update
+    rake db:migrate
 
 ## How To Use the Examples ##
 
