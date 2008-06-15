@@ -1,0 +1,13 @@
+<h1>Adresser</h1>
+<% form_remote_tag :url => {:action  => 'query'},:update => 'adr_search_result' do -%>
+  <p>
+    <label for="query">Generisk søgestreng:<br>
+      <%= text_field_tag 'query',  %> (f.eks "lyongade 19, 2300", "lyongade" eller "lyongade 19")
+  </label>
+  </p>
+  <p>
+    <%= submit_tag "søg" %>
+  </p>
+<% end -%>
+
+<div id="adr_search_result"></div>
