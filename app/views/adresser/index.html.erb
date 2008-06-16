@@ -1,12 +1,16 @@
 <h1>Adresser</h1>
-<% form_remote_tag :url => {:action  => 'query'},:update => 'adr_search_result' do -%>
+<% form_remote_tag :url => {:action  => 'query'},:update => 'adr_search_result', 
+:loading  => "$('in_progress').show();$('adr_search_result').hide();",:complete => "$('adr_search_result').show();$('in_progress').hide();" do -%>
   <p>
     <label for="query">Generisk søgestreng:<br>
       <%= text_field_tag 'query' %> (f.eks "lyongade 19, 2300", "lyongade" eller "lyongade 19")
   </label>
   </p>
   <p>
-    <%= submit_tag "søg" %> (ajaxrequest, endnu ingen progress indicator, klik og vent...)
+    <%= submit_tag "søg" %>
+    <div id="in_progress" style="display:none">
+      <%= image_tag 'spinner_mac.gif' %> Laver opslag mod OIOREST.DK...  
+    </div>
   </p>
 <% end -%>
 
