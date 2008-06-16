@@ -1,4 +1,7 @@
+<h2>Søgeresultat</h2>
+<%- for adresse in adresser do -%>
 <p>
   <%= adresse.vej.navn %> <%= adresse.husnr %><br>
   <%= adresse.postdistrikt.nr  %> <%= adresse.postdistrikt.navn %><br>  
 </p>
+<%- end -%>
